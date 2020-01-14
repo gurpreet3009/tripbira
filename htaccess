@@ -1,0 +1,23 @@
+
+RewriteEngine on
+RewriteCond %{HTTPS} !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+
+RewriteRule ^national_tour_package/([A-Z/,_]+)$ national_tour_package.php?city=$1 [NC,L]
+RewriteRule ^featured_tour_package/([A-Z/,_]+)$ featured_tour_package.php?city=$1 [NC,L]
+RewriteRule ^international_tour_package/([A-Z/,_]+)$ international_tour_package.php?city=$1 [NC,L]
+RewriteRule ^package_detail/([0-9]+)/([A-Z/,_]+)_itinerary$ package_detail.php?id=$1,city=$2 [NC,L]
+RewriteRule ^sightseeing/?$ sightseeing.php [NC,L]
+RewriteRule ^visa_service/?$ visa_service.php [NC,L]
+RewriteRule ^flight_booking/?$ flight_booking.php [NC,L]
+RewriteRule ^travel_insurance/?$ travel_insurance.php [NC,L]
+RewriteRule ^car_coach_rental/?$ car_coach_rental.php [NC,L]
+RewriteRule ^faq/?$ faq.php [NC,L]
+
+RewriteCond %{HTTP_HOST} ^tripbira\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.tripbira\.com$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^tripbira\.com$ "http\:\/\/tripbira\.com\/" [R=301,L]
+

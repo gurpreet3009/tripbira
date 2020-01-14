@@ -1,0 +1,9 @@
+.log_sub_btn {
+	border: 0;
+    background: transparent;
+    position: relative;
+    padding: 10px 15px;
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+}
